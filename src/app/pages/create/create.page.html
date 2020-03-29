@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" >
+        <ion-label color="medium"><h1>Registrate para acceder a todas las funcionalidades</h1></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title><h1>RegistroUsuario</h1></ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!--FORM--> 
+            <form class="ion-padding" [formGroup]="myForm">
+              <ion-list class="ion-align-items-center ion-align-self-center">
+                <ion-img [src]="url"></ion-img>
+                <ion-list class="ion-text-left">
+                  <ion-list-header>
+                    <ion-label color="tertiary"><h1>Foto</h1></ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    <ion-label position="floating" color="medium">link</ion-label>
+                    <ion-input type="text" formControlName="image"></ion-input>
+                    
+                  </ion-item>
+                  <ion-button (click)="changePhoto()" expand="block" size="small" shape="round" color="secondary">
+                    Cambiar foto
+                  </ion-button>
+                </ion-list>
+                
+            </ion-list>
+              <!--USUARIO--> 
+              <ion-list  class="ion-text-left">
+                <ion-list-header>
+                  <ion-label color="tertiary"><h1>Usuario</h1></ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label position="floating" color="medium">Nombre(s)</ion-label>
+                  <ion-input type="text" formControlName="firstNames"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Apellidos</ion-label>
+                  <ion-input type="text" formControlName="lastNames"></ion-input>
+                </ion-item>
+              </ion-list>
+              <!--GENERO--> 
+                <ion-list class="ion-text-left">
+                  <ion-radio-group name="gender" formControlName="gender" >
+                    <ion-list-header>
+                      <ion-label color="tertiary"><h1>Genero</h1></ion-label>
+                    </ion-list-header>
+                    <ion-item>
+                      <ion-label>Hombre</ion-label>
+                      <ion-radio slot="end" value="Hombre"></ion-radio>
+                    </ion-item>
+                
+                    <ion-item>
+                      <ion-label>Mujer</ion-label>
+                      <ion-radio slot="end" value="Mujer"></ion-radio>
+                    </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+                <!--OTROS-->
+                <ion-list class="ion-text-left">
+                  <ion-list-header>
+                    <ion-label color="tertiary"><h1>Otros</h1></ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    <ion-label position="floating">RFC</ion-label>
+                    <ion-input type="text" formControlName="RFC"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">DATE</ion-label>
+                    <ion-datetime formControlName="birthday" displayFormat="DD/MM/YYYY" >
+                    </ion-datetime>
+                </ion-item>
+                </ion-list> 
+                <!--INTERESES-->
+                <ion-list class="ion-text-left">
+                  <ion-list-header>
+                    <ion-label color="tertiary"><h1>Intereses</h1></ion-label>
+                  </ion-list-header>
+                  <ion-item >
+                    <ion-label>Comida</ion-label>
+                    <ion-select placeholder="Selecciona uno" formControlName="food">
+                      <ion-select-option value="Pizza">Pizza</ion-select-option>
+                      <ion-select-option value="Tacos">Tacos</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item >
+                    <ion-label>Deporte</ion-label>
+                    <ion-select placeholder="Selecciona uno" formControlName="sport">
+                      <ion-select-option value="Futbol">Futbol</ion-select-option>
+                      <ion-select-option value="Baseball">Baseball</ion-select-option>
+                      <ion-select-option value="Basketball">Basketball</ion-select-option>
+                      <ion-select-option value="Voleyball">Voleyball</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+                <!--CUENTA-->
+                <ion-list class="ion-text-left">
+                  <ion-list-header>
+                    <ion-label color="tertiary"><h1>Cuenta</h1></ion-label>
+                  </ion-list-header>
+                  <ion-item>
+                    <ion-label position="floating">Correo</ion-label>
+                    <ion-input type="text" formControlName="email"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Contraseña</ion-label>
+                    <ion-input type="text" formControlName="password"></ion-input>
+                  </ion-item>
+                </ion-list>
+              <ion-button (click)="createUser()" expand="block" shape="round">
+                Guardar
+              </ion-button>
+            </form>
+            <ion-list class="ion-text-center">
+              <ion-item>
+                <ion-label color="tertiary" class="ion-text-center" (click)="goLogin()"><u >Ya tengo una cuenta</u></ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

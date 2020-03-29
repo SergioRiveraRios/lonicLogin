@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary"><h1>{{user.firstNames}} {{user.lastNames}}</h1></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="ion-align-items-center ion-align-self-center">
+        <ion-thumbnail>
+          <ion-img [src]='user.image'></ion-img>
+        </ion-thumbnail>
+        
+        <ion-list class="ion-text-left">
+          
+          <ion-item>
+            <ion-label>email</ion-label>
+            <ion-label color="tertiary">{{user.email}}</ion-label> 
+          </ion-item>
+          <ion-item>
+            <ion-label>Genero</ion-label>
+            <ion-label color="tertiary">{{user.gender}}</ion-label> 
+          </ion-item>
+          <ion-item>
+            <ion-label>Fecha</ion-label>
+            <ion-label color="tertiary">{{user.birthday}}</ion-label> 
+          </ion-item>
+          <ion-item>
+            <ion-label>RFC</ion-label>
+            <ion-label color="tertiary">{{user.RFC}}</ion-label> 
+          </ion-item>
+          <ion-item>
+            <ion-label>Intereses:</ion-label>
+            <ion-badge slot="end" color="primary">{{user.interest.food}}</ion-badge>
+            <ion-badge slot="end" color="secondary">{{user.interest.sport}}</ion-badge>
+          </ion-item>
+        </ion-list>
+        
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
