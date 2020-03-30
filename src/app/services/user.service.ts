@@ -24,8 +24,8 @@ export class UserService {
   getUsers(): User[] {
     return this.users;
   }
-  getUser(pos:number){
-    return this.users[pos]
+  getUser() :User[]{
+    return this.users
   }
   printUser(){
     console.log(this.users)

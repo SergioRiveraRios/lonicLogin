@@ -33,8 +33,11 @@
                   <ion-item>
                     <ion-label position="floating" color="medium">link</ion-label>
                     <ion-input type="text" formControlName="image"></ion-input>
-                    
                   </ion-item>
+                  <ion-item *ngIf="myForm.get('image').errors && (myForm.get('image'
+                  ).dirty || myForm.get('image').touched || submitted)">
+                  <ion-label color="danger">Sólo links http-https</ion-label>
+                </ion-item>
                   <ion-button (click)="changePhoto()" expand="block" size="small" shape="round" color="secondary">
                     Cambiar foto
                   </ion-button>
@@ -50,9 +53,17 @@
                   <ion-label position="floating" color="medium">Nombre(s)</ion-label>
                   <ion-input type="text" formControlName="firstNames"></ion-input>
                 </ion-item>
+                <ion-item *ngIf="myForm.get('firstNames').errors && (myForm.get('firstNames'
+                  ).dirty || myForm.get('firstNames').touched || submitted)">
+                  <ion-label color="danger">Max 3 nombres </ion-label>
+                </ion-item>
                 <ion-item>
                   <ion-label position="floating">Apellidos</ion-label>
                   <ion-input type="text" formControlName="lastNames"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="myForm.get('lastNames').errors && (myForm.get('lastNames'
+                  ).dirty || myForm.get('lastNames').touched || submitted)">
+                  <ion-label color="danger">Max 2 Apellidos </ion-label>
                 </ion-item>
               </ion-list>
               <!--GENERO--> 
@@ -81,9 +92,13 @@
                     <ion-label position="floating">RFC</ion-label>
                     <ion-input type="text" formControlName="RFC"></ion-input>
                   </ion-item>
+                  <ion-item *ngIf="myForm.get('RFC').errors && (myForm.get('RFC'
+                  ).dirty || myForm.get('RFC').touched || submitted)">
+                  <ion-label color="danger">Formato RFC:4-LETRAS 6-DIGITOS</ion-label>
+                </ion-item> 
                   <ion-item>
                     <ion-label position="stacked">DATE</ion-label>
-                    <ion-datetime formControlName="birthday" displayFormat="DD/MM/YYYY" >
+                    <ion-datetime formControlName="birthday" displayFormat="DD/MM/YYYY" min="1900" max="1990">
                     </ion-datetime>
                 </ion-item>
                 </ion-list> 

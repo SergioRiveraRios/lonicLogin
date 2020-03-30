@@ -13,9 +13,12 @@ export class HomePage {
   myForm: FormGroup;
   submitted = false;
   users: User[] = [];
-  constructor(private router:Router,private service:UserService,private form:FormBuilder,public alerta: AlertController) {}
+  constructor(private router:Router,private service:UserService,private form:FormBuilder,public alerta: AlertController) {
+    this.clearPage()
+  }
   ngOnInit(){
     this.formValidations();
+    this.clearPage()
   }
   createUser(): void {
     this.router.navigate(['/create']);
@@ -51,11 +54,9 @@ export class HomePage {
           }
           }
       }
-      this.wrongPass();
-    }
-    
+      
+    }else{this.wrongPass();}
   }
-  
   async wrongPass() {
     const alert = await this.alerta.create({
       header: 'Incorrecto',
@@ -64,6 +65,9 @@ export class HomePage {
     });
 
     await alert.present();
+  }
+  clearPage(){
+      this.users = this.service.getUser();
   }
 }
 

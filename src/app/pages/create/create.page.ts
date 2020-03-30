@@ -42,7 +42,7 @@ export class CreatePage implements OnInit {
               Validators.maxLength(10),
               Validators.pattern('[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][0-9]+')])],
       email:['',Validators.compose([
-                Validators.pattern('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+')])],      
+                Validators.pattern('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.]+[.][a-zA-Z0-9]+')])],      
       password:['',Validators.compose([
                   Validators.minLength(8),
                   Validators.maxLength(16),
