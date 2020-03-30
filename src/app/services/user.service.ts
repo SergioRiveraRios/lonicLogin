@@ -14,18 +14,7 @@ export class UserService {
       birthday:'1994-12-15',
       email:'sdssdsd@asd.com',
       password:'dsdsdsddsd',
-      image:'https://i.picsum.photos/id/101/2621/1747.jpg',
-      interest:{food:'pizza',sport:'baseball'}
-    });
-    this.users.push({
-      firstNames:'Sergio',
-      lastNames:'Rivera',
-      gender:'M',
-      RFC:'asdasdsad',
-      birthday:'1994-12-15',
-      email:'asd@asd.com',
-      password:'123456789',
-      image:'https://i.picsum.photos/id/101/2621/1747.jpg',
+      image:'https://i.picsum.photos/id/866/300/300.jpg',
       interest:{food:'pizza',sport:'baseball'}
     });
    }

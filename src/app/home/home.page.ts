@@ -51,8 +51,8 @@ export class HomePage {
           }
           }
       }
-      
-    }this.wrongPass();
+      this.wrongPass();
+    }
     
   }
   

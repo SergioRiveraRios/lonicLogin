@@ -11,18 +11,17 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title color="primary"><h1>{{user.firstNames}} {{user.lastNames}}</h1></ion-card-title>
+      <ion-card-title color="primary" class="ion-text-center">
+        <ion-label><h1>{{user.firstNames}} {{user.lastNames}}</h1></ion-label>
+        </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-list class="ion-align-items-center ion-align-self-center">
-        <ion-thumbnail>
-          <ion-img [src]='user.image'></ion-img>
-        </ion-thumbnail>
-        
-        <ion-list class="ion-text-left">
-          
+    <ion-card-content >
+      <ion-list class="ion-align-items-center">
+          <ion-img [src]='user.image' class="img"></ion-img>
+      </ion-list>
+        <ion-list class="ion-align-items-center">
           <ion-item>
-            <ion-label>email</ion-label>
+            <ion-label>Email</ion-label>
             <ion-label color="tertiary">{{user.email}}</ion-label> 
           </ion-item>
           <ion-item>
@@ -42,9 +41,11 @@
             <ion-badge slot="end" color="primary">{{user.interest.food}}</ion-badge>
             <ion-badge slot="end" color="secondary">{{user.interest.sport}}</ion-badge>
           </ion-item>
+          
         </ion-list>
-        
-    </ion-list>
+        <ion-item>
+          <ion-button (click)="openSlider()" expand="full">Galeria</ion-button>
+        </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>

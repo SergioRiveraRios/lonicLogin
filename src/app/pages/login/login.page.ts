@@ -9,6 +9,7 @@ import {UserService} from '../../services/user.service'
 })
 export class LoginPage implements OnInit {
   user: any;
+  
   constructor(private router:Router,private service:UserService,private actrouter: ActivatedRoute) {
     this.actrouter.queryParams.subscribe(
       params => {
@@ -19,5 +20,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
- 
+  openSlider():void{
+    this.router.navigate(['/slider']);
+  }
 }
