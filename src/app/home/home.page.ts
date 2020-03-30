@@ -55,7 +55,7 @@ export class HomePage {
           }
       }
       
-    }else{this.wrongPass();}
+    }else{this.wrongPass()};
   }
   async wrongPass() {
     const alert = await this.alerta.create({
@@ -67,7 +67,7 @@ export class HomePage {
     await alert.present();
   }
   clearPage(){
-      this.users = this.service.getUser();
+      this.users = this.service.getUsers();
   }
 }
 

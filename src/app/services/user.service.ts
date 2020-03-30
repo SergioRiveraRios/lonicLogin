@@ -24,10 +24,8 @@ export class UserService {
   getUsers(): User[] {
     return this.users;
   }
-  getUser() :User[]{
-    return this.users
+  popUsers(): User {
+    return this.users.pop();
   }
-  printUser(){
-    console.log(this.users)
-  }
+  
 }

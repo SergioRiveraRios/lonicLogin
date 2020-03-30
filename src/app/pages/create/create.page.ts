@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router'
+import {Router ,NavigationExtras} from '@angular/router'
 import {User} from '../../models/user'
 import {UserService} from '../../services/user.service'
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+import { ToastController,LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -13,7 +15,7 @@ export class CreatePage implements OnInit {
   submitted = false;
   selectedDate;
   url;
-  constructor(private service: UserService, private router: Router,private form:FormBuilder) { 
+  constructor(private service: UserService, private router: Router,private form:FormBuilder,public toastController: ToastController,public loadingController: LoadingController) { 
     
   }
 
@@ -73,6 +75,9 @@ export class CreatePage implements OnInit {
         image:this.myForm.get('image').value
         
       });
+      this.LoadPag();
+      this.createToast();
+      this.redirectLogin();
     }
   }
   getGender(){
@@ -84,5 +89,30 @@ export class CreatePage implements OnInit {
   }
   changePhoto(){
     this.url=this.myForm.get('image').value
+  }
+  redirectLogin(){
+    const extras:NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.service.popUsers())  
+      }
+    };
+    this.router.navigate(['/login'],extras); 
+  }
+  async createToast() {
+    const toast = await this.toastController.create({
+      message: 'Usuario creado',
+      duration: 2000
+    });
+    toast.present();
+  }
+  async LoadPag() {
+    const loading = await this.loadingController.create({
+      message: 'Por favor,espera',
+      duration: 1000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }
