@@ -108,21 +108,11 @@
                     <ion-label color="tertiary"><h1>Intereses</h1></ion-label>
                   </ion-list-header>
                   <ion-item >
-                    <ion-label>Comida</ion-label>
-                    <ion-select placeholder="Selecciona uno" formControlName="food">
-                      <ion-select-option value="Pizza">Pizza</ion-select-option>
-                      <ion-select-option value="Tacos">Tacos</ion-select-option>
-                    </ion-select>
+                    <ion-label position="floating">Intereses</ion-label>
+                    <ion-input type="text" formControlName="interest"></ion-input>
                   </ion-item>
-                  <ion-item >
-                    <ion-label>Deporte</ion-label>
-                    <ion-select placeholder="Selecciona uno" formControlName="sport">
-                      <ion-select-option value="Futbol">Futbol</ion-select-option>
-                      <ion-select-option value="Baseball">Baseball</ion-select-option>
-                      <ion-select-option value="Basketball">Basketball</ion-select-option>
-                      <ion-select-option value="Voleyball">Voleyball</ion-select-option>
-                    </ion-select>
-                  </ion-item>
+                  <ion-button (click)="addInterest()" shape="round">añadir
+                  </ion-button>
                 </ion-list>
                 <!--CUENTA-->
                 <ion-list class="ion-text-left">

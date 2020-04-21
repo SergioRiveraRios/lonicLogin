@@ -15,7 +15,7 @@
         <ion-label><h1>{{user.firstNames}} {{user.lastNames}}</h1></ion-label>
         </ion-card-title>
     </ion-card-header>
-    <ion-card-content >
+    <ion-card-content>
       <ion-list class="ion-align-items-center">
           <ion-img [src]='user.image' class="img"></ion-img>
       </ion-list>
@@ -36,10 +36,13 @@
             <ion-label>RFC</ion-label>
             <ion-label color="tertiary">{{user.RFC}}</ion-label> 
           </ion-item>
-          <ion-item>
+          <ion-item >
             <ion-label>Intereses:</ion-label>
-            <ion-badge slot="end" color="primary">{{user.interest.food}}</ion-badge>
-            <ion-badge slot="end" color="secondary">{{user.interest.sport}}</ion-badge>
+            <div *ngFor="let i of user.interest">
+                <ion-badge color="success">{{i}}</ion-badge>
+            </div>
+           <!-- <ion-badge slot="end" color="primary">{{user.interest.food}}</ion-badge>
+            <ion-badge slot="end" color="secondary">{{user.interest.sport}}</ion-badge>-->
           </ion-item>
           
         </ion-list>
